@@ -1,0 +1,23 @@
+$list-item-size: 96px;
+
+.layout {
+  display: flex;
+}
+
+.layout__left {
+  box-sizing: border-box;
+  width: $list-item-size * 3 + 48px;
+  background: $grey-2;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout__center {
+  flex: 1;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

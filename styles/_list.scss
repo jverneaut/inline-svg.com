@@ -1,0 +1,116 @@
+$layout-left-padding: 0 24px;
+
+.lists {
+  margin-top: 24px;
+  padding: $layout-left-padding;
+  padding-bottom: 24px;
+  overflow-y: scroll;
+}
+
+.list {
+  font-size: 0;
+}
+
+.list-title {
+  margin-left: $br / 2;
+  color: $grey-8;
+  user-select: none;
+}
+
+.list + .list-title {
+  margin-top: 24px;
+}
+
+.list-title + .list {
+  margin-top: 16px;
+}
+
+.list-item {
+  height: $list-item-size;
+  width: $list-item-size;
+  background: $grey-3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  vertical-align: top;
+  cursor: pointer;
+  transition: $tr;
+  padding: 8px;
+}
+
+.list-item:hover {
+  background: $grey-4;
+}
+
+.list-item:nth-child(1) {
+  border-top-left-radius: $br;
+}
+
+.list-item:nth-child(3) {
+  border-top-right-radius: $br;
+}
+
+.list-item:nth-child(3n).list-item:nth-last-child(1),
+.list-item:nth-child(3n).list-item:nth-last-child(2),
+.list-item:nth-child(3n).list-item:nth-last-child(3) {
+  border-bottom-right-radius: $br;
+}
+
+.list-item:nth-last-child(1).list-item:nth-child(3n - 1),
+.list-item:nth-last-child(1).list-item:nth-child(3n - 2) {
+  position: relative;
+}
+
+.list-item:nth-last-child(1).list-item:nth-child(3n - 1)::before,
+.list-item:nth-last-child(1).list-item:nth-child(3n - 2)::before {
+  background: $grey-3;
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  content: '';
+}
+
+.list-item:nth-last-child(1).list-item:nth-child(3n - 1)::after,
+.list-item:nth-last-child(1).list-item:nth-child(3n - 2)::after {
+  background: $grey-2;
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  content: '';
+  border-top-left-radius: $br;
+}
+
+.list-item:nth-child(1)::before, .list-item:nth-child(1)::after,
+.list-item:nth-child(2)::before, .list-item:nth-child(2)::after {
+  display: none !important;
+}
+
+.list-item:nth-child(1).list-item:nth-last-child(1),
+.list-item:nth-child(2).list-item:nth-last-child(1) {
+  border-top-right-radius: $br;
+}
+
+.list-item:nth-last-child(1) {
+  border-bottom-right-radius: $br;
+}
+
+.list-item:nth-child(3n + 1).list-item:nth-last-child(1),
+.list-item:nth-child(3n + 1).list-item:nth-last-child(2),
+.list-item:nth-child(3n + 1).list-item:nth-last-child(3) {
+  border-bottom-left-radius: $br;
+}
+
+.list-item__title {
+  margin-top: 8px;
+  font-size: 12px;
+  color: $grey-6;
+  user-select: none;
+  text-align: center;
+}

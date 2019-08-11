@@ -1,0 +1,36 @@
+@import './reset.css';
+
+$primary: hsl(240, 100%, 61%);
+
+$grey-0: hsl(240, 20%, 6%);
+$grey-1: hsl(240, 18%, 7%);
+$grey-2: hsl(240, 15%, 8%);
+$grey-3: hsl(240, 11%, 9%);
+$grey-4: hsl(240, 12%, 14%);
+$grey-5: hsl(240, 6%, 42%);
+$grey-6: hsl(240, 8%, 64%);
+$grey-8: hsl(240, 9%, 78%);
+
+$br: 8px;
+$tr: 0.2s;
+
+body {
+  font-family: Lato;
+  color: white;
+  background: $grey-0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*::selection {
+  background: rgba($primary, 0.99);
+  color: white;
+}
+
+@import './layout';
+@import './list';
+@import './detail';
