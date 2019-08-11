@@ -8,7 +8,9 @@
   $: name = renderedComponent && renderedComponent.$$.ctx.NAME;
 </script>
 
-<div class="list-item" on:click={() => selectedSvgIndex.set(index)}>
+<div
+  class={`list-item${index === $selectedSvgIndex ? ' list-item--selected' : ''}`}
+  on:click={() => selectedSvgIndex.set(index)}>
   <div class="list-item__img">
     <svelte:component this={component} bind:this={renderedComponent} />
   </div>

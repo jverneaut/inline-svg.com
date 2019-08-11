@@ -39,6 +39,10 @@ $layout-left-padding: 0 24px;
   padding: 8px;
 }
 
+.list-item--selected {
+  background: $grey-4;
+}
+
 .list-item:hover {
   background: $grey-4;
 }
@@ -72,6 +76,7 @@ $layout-left-padding: 0 24px;
   top: 0;
   left: 100%;
   content: '';
+  pointer-events: none;
 }
 
 .list-item:nth-last-child(1).list-item:nth-child(3n - 1)::after,
@@ -85,6 +90,7 @@ $layout-left-padding: 0 24px;
   left: 100%;
   content: '';
   border-top-left-radius: $br;
+  pointer-events: none;
 }
 
 .list-item:nth-child(1)::before, .list-item:nth-child(1)::after,
