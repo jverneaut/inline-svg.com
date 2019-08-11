@@ -47,6 +47,16 @@
       renderedComponent[prop] = value;
     }
   };
+
+  const copyCode = () => {
+    const temp = document.createElement("textarea");
+    document.body.appendChild(temp);
+    temp.textContent = svgCode;
+    temp.select();
+    document.execCommand("copy");
+    temp.remove();
+    alert("SVG copié avec succès");
+  };
 </script>
 
 <div class="layout__center">
@@ -82,7 +92,7 @@
       <pre>{svgCode}</pre>
     </div>
     <div class="detail__buttons">
-      <button class="detail__button detail__button-primary">
+      <button class="detail__button detail__button-primary" on:click={copyCode}>
         Copier le code
       </button>
       <a download={filename} href={file} class="detail__button">
