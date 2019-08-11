@@ -7,6 +7,7 @@
   let svgCode = null;
 
   $: name = renderedComponent && renderedComponent.$$.ctx.NAME;
+  $: filename = renderedComponent && renderedComponent.$$.ctx.FILENAME;
   $: tags = renderedComponent && renderedComponent.$$.ctx.TAGS;
   $: props =
     renderedComponent &&
@@ -29,11 +30,14 @@
       };
     });
 
+  let file;
+
   afterUpdate(async () => {
     svgCode = beautify.html(
       document.querySelector(".detail__img").firstChild.outerHTML,
       { indent_size: 2 }
     );
+    file = "data:application/octet-stream;base64," + window.btoa(svgCode);
   });
 
   const changeProp = (prop, value, type) => {
@@ -81,8 +85,9 @@
       <button class="detail__button detail__button-primary">
         Copier le code
       </button>
-      <button class="detail__button">Télécharger en SVG</button>
-      <button class="detail__button">Télécharger en png</button>
+      <a download={filename} href={file} class="detail__button">
+        Télécharger au format SVG
+      </a>
     </div>
   </div>
   <div class="layout__bottom">

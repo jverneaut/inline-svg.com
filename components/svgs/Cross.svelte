@@ -5,6 +5,7 @@
 
   export const NAME = "Cross";
   export const TAGS = ["Cross", "Close"];
+  export const FILENAME = "cross.svg";
 
   $: offset = (1 / Math.SQRT1_2) * thickness;
 </script>

@@ -6,6 +6,7 @@
 
   export const NAME = "Menu";
   export const TAGS = ["Menu", "Hamburger"];
+  export const FILENAME = "menu.svg";
 </script>
 
 <svelte:options accessors={true} />

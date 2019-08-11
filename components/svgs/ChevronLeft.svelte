@@ -6,6 +6,7 @@
 
   export const NAME = "Chevron Left";
   export const TAGS = ["Chevron", "Arrow"];
+  export const FILENAME = "chevron_left.svg";
 
   $: aire = (width * height) / 4;
   $: base = Math.sqrt((height / 2) * (height / 2) + width * width);
