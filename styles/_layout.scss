@@ -21,3 +21,18 @@ $list-item-size: 96px;
   flex-direction: column;
   justify-content: space-between;
 }
+
+.layout__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: $grey-5;
+  padding: 12px 16px;
+  background: $grey-1;
+}
+
+.layout__bottom a {
+  color: $grey-6;
+  text-decoration: none;
+}
