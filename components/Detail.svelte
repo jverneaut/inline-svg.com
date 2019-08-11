@@ -88,12 +88,16 @@
   <div class="layout__bottom">
     <div class="layout__bottom-credits">
       Built with Svelte 3 by
-      <a href="https://www.julienverneaut.com/">Julien Verneaut</a>
+      <a target="_blank" href="https://www.julienverneaut.com/">
+        Julien Verneaut
+      </a>
       .
     </div>
     <div class="layout__bottom-links">
       Source code on &nbsp;
-      <a href="https://github.com/jverneaut/inline-svg.com">Github</a>
+      <a target="_blank" href="https://github.com/jverneaut/inline-svg.com">
+        Github
+      </a>
     </div>
   </div>
 </div>
