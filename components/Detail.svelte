@@ -63,7 +63,9 @@
   <div class="detail">
     <div class="detail__title">{name}</div>
     <div class="detail__img">
-      <svelte:component this={$selectedSvg} bind:this={renderedComponent} />
+      <svelte:component
+        this={$selectedSvg.component}
+        bind:this={renderedComponent} />
     </div>
     <div class="detail__controls">
       {#if derivedProps}
