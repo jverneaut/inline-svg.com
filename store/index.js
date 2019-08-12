@@ -4,12 +4,14 @@ import Cross from '../components/svgs/Cross.svelte';
 import Menu from '../components/svgs/Menu.svelte';
 import ChevronLeft from '../components/svgs/ChevronLeft.svelte';
 import ChevronRight from '../components/svgs/ChevronRight.svelte';
+import ChevronTop from '../components/svgs/ChevronTop.svelte';
+import ChevronBottom from '../components/svgs/ChevronBottom.svelte';
 
 
 // TODO: Refactor index attribution
 export const collections = [
-  { name: 'Misc', svgs: [Menu, Cross] },
-  { name: 'Chevrons', svgs: [ChevronLeft, ChevronRight] },
+  { name: 'Navigation', svgs: [Menu, Cross] },
+  { name: 'Chevrons', svgs: [ChevronLeft, ChevronTop, ChevronRight, ChevronBottom] },
 ].map((collection, index, arr) => ({
   ...collection,
   baseIndex: arr.slice(0, index).reduce((acc, val) => acc.concat(val.svgs), []).length
