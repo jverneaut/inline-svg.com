@@ -1,5 +1,5 @@
 <script>
-  export let width = 24;
+  export let width = 16;
   export let thickness = 2;
   export let color = "#ffffff";
 
