@@ -1,0 +1,35 @@
+.search {
+  padding: 0 $list-padding;
+  padding-top: 24px;
+}
+
+.search__input {
+  background: $grey-3;
+  font-family: inherit;
+  border: none;
+  font-size: 14px;
+  border-radius: $br;
+  padding: 12px 16px;
+  color: $grey-8;
+  width: 100%;
+  outline: none;
+}
+
+.search__input::placeholder {
+  color: $grey-6;
+}
+
+.search__results {
+  margin-top: 24px;
+}
+
+.search__error {
+  font-size: 14px;
+  color: $grey-6;
+  margin-left: $br / 2;
+  line-height: 1.5;
+}
+
+.search__error-query {
+  color: $grey-8;
+}

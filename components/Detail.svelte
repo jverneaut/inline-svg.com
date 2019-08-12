@@ -1,5 +1,5 @@
 <script>
-  import { selectedSvg } from "../store";
+  import { selectedSvg, searchInput } from "../store";
   import { afterUpdate } from "svelte";
   import beautify from "js-beautify";
 
@@ -86,7 +86,12 @@
     <div class="detail__keywords">
       {#if tags}
         {#each tags as tag}
-          <a href="" class="detail__keyword">{tag}</a>
+          <a
+            href={``}
+            on:click|preventDefault={() => searchInput.set(tag)}
+            class="detail__keyword">
+            {tag}
+          </a>
         {/each}
       {/if}
     </div>
