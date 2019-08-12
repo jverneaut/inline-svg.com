@@ -1,4 +1,5 @@
 $list-item-size: 96px;
+$list-item-size-sm: 64px;
 $list-padding: 24px;
 
 .layout {
@@ -13,10 +14,9 @@ $list-padding: 24px;
   flex-direction: column;
 }
 
-
 @media screen and (max-width: $br-small) {
   .layout__left {
-    width: $list-item-size + $list-padding * 2;
+    width: $list-item-size-sm + $list-padding * 2;
   }
 }
 
