@@ -11,9 +11,14 @@ import ChevronBottom from '../components/svgs/ChevronBottom.svelte';
 import Twitter from '../components/svgs/Twitter.svelte';
 import Facebook from '../components/svgs/Facebook.svelte';
 
+import Bar from '../components/svgs/Bar.svelte';
+import Rectangle from '../components/svgs/Rectangle.svelte';
+import Circle from '../components/svgs/Circle.svelte';
+
 export const collections = [
   { name: 'Navigation', svgs: [Menu, Cross] },
   { name: 'Chevrons', svgs: [ChevronLeft, ChevronTop, ChevronRight, ChevronBottom] },
+  { name: 'Shapes', svgs: [Bar, Rectangle, Circle] },
   { name: 'Brands', svgs: [Twitter, Facebook] },
 ].map((collection, index, arr) => ({
   ...collection,
