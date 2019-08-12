@@ -1,8 +1,6 @@
-$layout-left-padding: 0 24px;
-
 .lists {
   margin-top: 24px;
-  padding: $layout-left-padding;
+  padding: 0 $list-padding;
   padding-bottom: 24px;
   overflow-y: scroll;
 }
@@ -47,70 +45,38 @@ $layout-left-padding: 0 24px;
   background: $grey-4;
 }
 
-.list-item:nth-child(1) {
-  border-top-left-radius: $br;
+@mixin calculate-br($col_number) {
+  .list-item:nth-child(1) { border-top-left-radius: $br; }
+  .list-item:nth-last-child(1) { border-bottom-right-radius: $br; }
+  .list-item:nth-child(#{$col_number}) { border-top-right-radius: $br; }
+
+  @for $i from 1 through $col_number {
+    .list-item:nth-child(#{$col_number}n + 1).list-item:nth-last-child(#{$i}) {
+      border-bottom-left-radius: $br;
+    }
+
+    .list-item:nth-child(#{$col_number}n).list-item:nth-last-child(#{$i}) {
+      border-bottom-right-radius: $br;
+    }
+  }
+
+  @for $i from 1 through $col_number - 1 {
+    .list-item:nth-child(#{$i}).list-item:nth-last-child(1) {
+      border-top-right-radius: $br; 
+    }
+  }
 }
 
-.list-item:nth-child(3) {
-  border-top-right-radius: $br;
+@media screen and (max-width: $br-small) {
+  @include calculate-br(1);
 }
 
-.list-item:nth-child(3n).list-item:nth-last-child(1),
-.list-item:nth-child(3n).list-item:nth-last-child(2),
-.list-item:nth-child(3n).list-item:nth-last-child(3) {
-  border-bottom-right-radius: $br;
+@media screen and (min-width: $br-small + 1) and (max-width: $br-med) {
+  @include calculate-br(2);
 }
 
-.list-item:nth-last-child(1).list-item:nth-child(3n - 1),
-.list-item:nth-last-child(1).list-item:nth-child(3n - 2) {
-  position: relative;
-}
-
-.list-item:nth-last-child(1).list-item:nth-child(3n - 1)::before,
-.list-item:nth-last-child(1).list-item:nth-child(3n - 2)::before {
-  background: $grey-3;
-  height: 100%;
-  width: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 100%;
-  content: '';
-  pointer-events: none;
-}
-
-.list-item:nth-last-child(1).list-item:nth-child(3n - 1)::after,
-.list-item:nth-last-child(1).list-item:nth-child(3n - 2)::after {
-  background: $grey-2;
-  height: 100%;
-  width: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 100%;
-  content: '';
-  border-top-left-radius: $br;
-  pointer-events: none;
-}
-
-.list-item:nth-child(1)::before, .list-item:nth-child(1)::after,
-.list-item:nth-child(2)::before, .list-item:nth-child(2)::after {
-  display: none !important;
-}
-
-.list-item:nth-child(1).list-item:nth-last-child(1),
-.list-item:nth-child(2).list-item:nth-last-child(1) {
-  border-top-right-radius: $br;
-}
-
-.list-item:nth-last-child(1) {
-  border-bottom-right-radius: $br;
-}
-
-.list-item:nth-child(3n + 1).list-item:nth-last-child(1),
-.list-item:nth-child(3n + 1).list-item:nth-last-child(2),
-.list-item:nth-child(3n + 1).list-item:nth-last-child(3) {
-  border-bottom-left-radius: $br;
+@media screen and (min-width: $br-med + 1) {
+  @include calculate-br(3);
 }
 
 .list-item__title {
