@@ -37,12 +37,27 @@
   padding: 8px;
 }
 
-.list-item--selected {
-  background: $grey-4;
+.list-item__title {
+  margin-top: 8px;
+  font-size: 12px;
+  color: $grey-6;
+  user-select: none;
+  text-align: center;
+  line-height: 1.2;
+  transition: $tr color;
 }
 
 .list-item:hover {
   background: $grey-4;
+}
+
+.list-item--selected {
+  background: $grey-4;
+}
+
+.list-item--selected .list-item__title,
+.list-item:hover .list-item__title {
+  color: $grey-8;
 }
 
 @mixin calculate-br($col_number) {
@@ -89,13 +104,4 @@
 
 @media screen and (min-width: $br-med) {
   @include calculate-br(3);
-}
-
-.list-item__title {
-  margin-top: 8px;
-  font-size: 12px;
-  color: $grey-6;
-  user-select: none;
-  text-align: center;
-  line-height: 1.2;
 }

@@ -111,7 +111,7 @@
       .
     </div>
     <div class="layout__bottom-links">
-      Source code on &nbsp;
+      Source code on
       <a target="_blank" href="https://github.com/jverneaut/inline-svg.com">
         Github
       </a>
