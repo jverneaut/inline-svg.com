@@ -73,7 +73,7 @@
 
 .detail__keyword {
   text-decoration: none;
-  color: $grey-5;
+  color: $grey-6;
   margin-right: 16px;
   margin-top: 16px;
   display: inline-block;
@@ -81,9 +81,9 @@
 
 .detail__code {
   margin-top: 40px;
-  background: $grey-1;
+  background: $grey-2;
   padding: 24px;
-font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   border-radius: $br;
   width: 3 * (192px + 16px) - 16px;
   max-width: 100%;
@@ -94,7 +94,7 @@ font-family: 'Roboto Mono', monospace;
   overflow-x: scroll;
   font-size: 14px;
   line-height: 1.5;
-  color: $grey-6;
+  color: $grey-8;
 }
 
 .detail__buttons {
@@ -103,9 +103,9 @@ font-family: 'Roboto Mono', monospace;
 }
 
 .detail__button {
-  background: $grey-3;
+  background: $grey-4;
   border: none;
-  color: $grey-6;
+  color: $grey-8;
   font-size: 14px;
   font-family: inherit;
   padding: 16px 24px;

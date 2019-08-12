@@ -20,6 +20,7 @@ $list-item-size: 96px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-left: 1px solid $grey-0;
 }
 
 .layout__bottom {
@@ -29,7 +30,7 @@ $list-item-size: 96px;
   font-size: 12px;
   color: $grey-5;
   padding: 12px 16px;
-  background: $grey-1;
+  background: $grey-2;
 }
 
 .layout__bottom a {
