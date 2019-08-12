@@ -20,13 +20,13 @@ $list-padding: 24px;
   }
 }
 
-@media screen and (min-width: $br-small + 1) and (max-width: $br-med) {
+@media screen and (min-width: $br-small) and (max-width: $br-med) {
   .layout__left {
     width: 2 * $list-item-size + $list-padding * 2;
   }
 }
 
-@media screen and (min-width: $br-med + 1) {
+@media screen and (min-width: $br-med) {
   .layout__left {
     width: 3 * $list-item-size + $list-padding * 2;
   }
