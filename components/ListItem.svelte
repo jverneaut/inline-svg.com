@@ -9,7 +9,6 @@
 
   const handleClick = () => {
     selectedSvgIndex.set(index);
-    searchInput.set("");
   };
 </script>
 
