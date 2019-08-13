@@ -10,7 +10,7 @@
   {#if $searchInput === ''}
     <div
       class="lists"
-      in:fly={{ y: 4, duration: 200, delay: 100 }}
+      in:fly={{ y: 4, duration: 200 }}
       out:fly={{ y: 4, duration: 200 }}>
       {#each collections as collection, collectionOndex}
         <div class="list-title">{collection.name}</div>

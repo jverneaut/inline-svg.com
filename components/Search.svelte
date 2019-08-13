@@ -25,7 +25,7 @@
   {#if $searchInput !== ''}
     <div
       class="search__results"
-      in:fly={{ y: -4, duration: 200, delay: 100 }}
+      in:fly={{ y: -4, duration: 200 }}
       out:fly={{ y: -4, duration: 200 }}>
       <div class="list-title">Résultats</div>
       <div class="list">
