@@ -5,7 +5,7 @@
   export let color = "#ffffff";
 
   export const NAME = "Chevron Bottom";
-  export const TAGS = ["Chevron", "Arrow", "Bottom"];
+  export const TAGS = ["Chevron", "Arrow", "Bottom", "Direction"];
   export const FILENAME = "chevron_bottom.svg";
 
   $: aire = (width * height) / 4;

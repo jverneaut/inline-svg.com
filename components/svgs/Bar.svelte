@@ -4,7 +4,7 @@
   export let color = "#ffffff";
 
   export const NAME = "Bar";
-  export const TAGS = ["Bar", "Rect", "Line"];
+  export const TAGS = ["Bar", "Rect", "Line", "Shape"];
   export const FILENAME = "bar.svg";
 </script>
 

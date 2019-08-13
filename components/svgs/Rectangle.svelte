@@ -4,7 +4,7 @@
   export let color = "#ffffff";
 
   export const NAME = "Rectangle";
-  export const TAGS = ["Rectangle", "Rect"];
+  export const TAGS = ["Rectangle", "Rect", "Shape"];
   export const FILENAME = "rectangle.svg";
 </script>
 
