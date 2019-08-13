@@ -37,7 +37,7 @@ export const svgs = collections.map(collection => collection.svgs).reduce((acc, 
 export const selectedSvgIndex = writable(0);
 export const selectedSvg = derived(selectedSvgIndex, $selectedSvgIndex => svgs[$selectedSvgIndex]);
 
-export const searchInput = writable('');
+export const searchInput = writable('ctetc');
 export const searchResults = derived(searchInput, $searchInput => svgs.filter(svg => {
   return svg.keywords.join(' ').toLowerCase().indexOf($searchInput.toLowerCase()) !== -1;
 }));

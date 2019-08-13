@@ -1,6 +1,7 @@
 .search {
   padding: 0 $list-padding;
   padding-top: 24px;
+  position: relative;
 }
 
 .search__input {
@@ -13,6 +14,14 @@
   color: $grey-8;
   width: 100%;
   outline: none;
+}
+
+.search__delete-btn {
+  padding: 16px;
+  position: absolute;
+  top: 24px + 14px - 16px;
+  right: 24px + 16px - 16px;
+  cursor: pointer;
 }
 
 .search__input::placeholder {
