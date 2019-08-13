@@ -1,5 +1,6 @@
 <script>
   import { searchInput, searchResults } from "../store";
+  import { fly } from "svelte/transition";
   import ListItem from "./ListItem.svelte";
 </script>
 
@@ -22,7 +23,10 @@
     </div>
   {/if}
   {#if $searchInput !== ''}
-    <div class="search__results">
+    <div
+      class="search__results"
+      in:fly={{ y: -4, duration: 200, delay: 100 }}
+      out:fly={{ y: -4, duration: 200 }}>
       <div class="list-title">Résultats</div>
       <div class="list">
         {#if $searchResults.length}
