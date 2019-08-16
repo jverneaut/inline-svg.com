@@ -1,7 +1,13 @@
 <script>
   import { selectedSvg, searchInput } from "../store";
-  import { afterUpdate } from "svelte";
+  import { afterUpdate, onMount } from "svelte";
   import beautify from "js-beautify";
+
+  import {
+    sendScreenView,
+    sendSvgCopy,
+    sendSvgDownload
+  } from "../analytics.js";
 
   let renderedComponent = null;
   let svgCode = null;
@@ -56,7 +62,16 @@
     document.execCommand("copy");
     temp.remove();
     alert("SVG copié avec succès");
+    sendSvgCopy($selectedSvg.name);
   };
+
+  const handleDownloadClick = () => {
+    sendSvgDownload($selectedSvg.name);
+  };
+
+  onMount(() => {
+    sendScreenView($selectedSvg.name);
+  });
 </script>
 
 <div class="layout__center">
@@ -102,7 +117,11 @@
       <button class="detail__button detail__button-primary" on:click={copyCode}>
         Copier le code
       </button>
-      <a download={filename} href={file} class="detail__button">
+      <a
+        download={filename}
+        href={file}
+        class="detail__button"
+        on:click={handleDownloadClick}>
         Télécharger au format SVG
       </a>
     </div>

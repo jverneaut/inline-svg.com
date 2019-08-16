@@ -1,5 +1,6 @@
 <script>
   import { selectedSvgIndex, searchInput } from "../store";
+  import { sendScreenView } from "../analytics.js";
 
   export let component = null;
   export let index;
@@ -9,6 +10,7 @@
 
   const handleClick = () => {
     selectedSvgIndex.set(index);
+    sendScreenView(name);
   };
 </script>
 

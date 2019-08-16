@@ -28,6 +28,7 @@ export const collections = [
 export const svgs = collections.map(collection => collection.svgs).reduce((acc, val) => {
   const indexedComponents = val.map((component, index) => ({
     keywords: new component({}).$$.ctx.TAGS,
+    name: new component({}).$$.ctx.NAME,
     component,
     index: acc.length + index
   }));
