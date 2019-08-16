@@ -3,11 +3,7 @@
   import { afterUpdate, onMount } from "svelte";
   import beautify from "js-beautify";
 
-  import {
-    sendScreenView,
-    sendSvgCopy,
-    sendSvgDownload
-  } from "../analytics.js";
+  import { sendSvgCopy, sendSvgDownload } from "../analytics.js";
 
   let renderedComponent = null;
   let svgCode = null;
@@ -68,10 +64,6 @@
   const handleDownloadClick = () => {
     sendSvgDownload($selectedSvg.name);
   };
-
-  onMount(() => {
-    sendScreenView($selectedSvg.name);
-  });
 </script>
 
 <div class="layout__center">

@@ -12,9 +12,9 @@ export const sendSvgDownload = svgName => {
   });
 };
 
-export const sendScreenView = screenName => {
-  gtag('event', 'screen_view', {
-    'app_name': 'inline-svg.com',
-    'screen_name': screenName
+export const sendPageView = (pageName, pagePath) => {
+  gtag('config', 'UA-120978536-4', {
+    'page_title': pageName,
+    'page_path': pagePath
   });
 }
