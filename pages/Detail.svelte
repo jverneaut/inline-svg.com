@@ -1,12 +1,14 @@
 <script>
   import { afterUpdate } from "svelte";
-  import { svgs } from "../store";
   import { navigate } from "svelte-routing";
 
-  export let svgName;
+  import { svgs } from "../store";
+  import List from "../components/List.svelte";
 
-  $: component = svgs.filter(svg => svg.slug === svgName)[0]
-    ? svgs.filter(svg => svg.slug === svgName)[0].component
+  export let selectedSlug;
+
+  $: component = svgs.filter(svg => svg.slug === selectedSlug)[0]
+    ? svgs.filter(svg => svg.slug === selectedSlug)[0].component
     : null;
 
   afterUpdate(async () => {
@@ -16,4 +18,11 @@
   });
 </script>
 
-<svelte:component this={component} />
+<div class="layout">
+  <div class="layout__left">
+    <List {selectedSlug} />
+  </div>
+  <div class="layout__center">
+    <svelte:component this={component} />
+  </div>
+</div>

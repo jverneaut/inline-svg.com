@@ -1,25 +1,24 @@
 <script>
-  import { svgs, collections, selectedSvg, searchInput } from "../store";
-  import { fly } from "svelte/transition";
-  import ListItem from "./ListItem.svelte";
-  import Search from "./Search.svelte";
+  import { svgs, collections } from "../store";
+  import { Link } from "svelte-routing";
+
+  export let selectedSlug;
 </script>
 
-<div class="layout__left">
-  <Search />
-  {#if $searchInput === ''}
-    <div
-      class="lists"
-      in:fly={{ y: 4, duration: 200 }}
-      out:fly={{ y: 4, duration: 200 }}>
-      {#each collections as collection, collectionOndex}
-        <div class="list-title">{collection.name}</div>
-        <div class="list">
-          {#each collection.svgs as svg, svgIndex}
-            <ListItem component={svg} index={collection.baseIndex + svgIndex} />
-          {/each}
-        </div>
+<div class="lists">
+  {#each collections as collection}
+    <div class="list-title">{collection}</div>
+    <div class="list">
+      {#each svgs.filter(svg => svg.collection === collection) as svg}
+        <Link
+          to="/{svg.slug}"
+          getProps={() => ({ class: `list-item${selectedSlug === svg.slug ? ' list-item--selected' : ''}` })}>
+          <div class="list-item__img">
+            <svelte:component this={svg.component} />
+          </div>
+          <div class="list-item__title">{svg.name}</div>
+        </Link>
       {/each}
     </div>
-  {/if}
+  {/each}
 </div>

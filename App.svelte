@@ -8,11 +8,9 @@
 </script>
 
 <Router>
-  <Link to="/">Home</Link>
-  <Link to="/test">Detail</Link>
   <div>
     <Route path="/404" component={Error404} />
-    <Route path="/:svgName" component={Detail} />
+    <Route path="/:selectedSlug" component={Detail} />
     <Route path="/" component={Home} />
   </div>
 </Router>
