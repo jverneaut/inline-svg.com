@@ -2,6 +2,10 @@
   import { Router, Route, Link } from "svelte-routing";
   import Home from "./pages/Home.svelte";
   import Detail from "./pages/Detail.svelte";
+
+  import Test from "./svgs/index.js";
+
+  import "./store/index.js";
 </script>
 
 <Router>
