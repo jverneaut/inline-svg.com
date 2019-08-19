@@ -4,6 +4,7 @@
 
   import { svgs } from "../store";
   import List from "../components/List.svelte";
+  import Editor from "../components/Editor.svelte";
 
   export let selectedSlug;
 
@@ -23,6 +24,6 @@
     <List {selectedSlug} />
   </div>
   <div class="layout__center">
-    <svelte:component this={component} />
+    <Editor {component} />
   </div>
 </div>
