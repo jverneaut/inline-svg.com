@@ -1,16 +1,21 @@
 import svgComponents from '../svgs';
+import slugify from "../utils/slugify.js";
 
 const generateSvg = svgComponent => {
   const { NAME, FILENAME, TAGS } = new svgComponent({});
   return {
     name: NAME,
     filename: FILENAME,
-    tags: TAGS
+    tags: TAGS,
+    slug: slugify(NAME),
+    component: svgComponent
   }
 }
 
-const svgs = svgComponents.map(generateSvg);
-console.log(svgs);
+export const svgs = svgComponents.map(generateSvg);
+
+const selectedSvgName = svgs[0].name;
+const selectedSvg = svgs.filter(svg => svg.name === selectedSvgName)[0];
 
 
 // import { writable, derived } from 'svelte/store';
