@@ -18,7 +18,7 @@ import Facebook from './Facebook.svelte';
 import Twitter from './Twitter.svelte';
 
 export default {
-  'Navigation': [Menu],
+  'Navigation': [Menu, Cross],
   'Chevrons': [ChevronLeft, ChevronTop, ChevronBottom, ChevronRight],
   'Shapes': [Bar, Circle, Rectangle],
   'Brands': [Facebook, Twitter]
