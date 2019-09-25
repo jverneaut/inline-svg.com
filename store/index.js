@@ -25,10 +25,12 @@ export const collections = [
   baseIndex: arr.slice(0, index).reduce((acc, val) => acc.concat(val.svgs), []).length
 }));
 
+const dummy = document.createElement('div');
+
 export const svgs = collections.map(collection => collection.svgs).reduce((acc, val) => {
   const indexedComponents = val.map((component, index) => ({
-    keywords: new component({}).$$.ctx.TAGS,
-    name: new component({}).$$.ctx.NAME,
+    keywords: new component({ target: dummy }).$$.ctx.TAGS,
+    name: new component({ target: dummy }).$$.ctx.NAME,
     component,
     index: acc.length + index
   }));
