@@ -30,6 +30,10 @@ body {
   box-sizing: border-box;
   position: relative;
   cursor: pointer;
+
+  &--selected {
+    background: #f0f0f0;
+  }
 }
 
 .list-item:hover {
@@ -63,9 +67,9 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  width: 600px;
+  width: 400px;
   height: 100vh;
-  background: white;
+  background: #f0f0f0;
   padding: 40px;
 }
 
