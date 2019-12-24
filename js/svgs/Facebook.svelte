@@ -1,5 +1,5 @@
 <script>
-  export let color = "#ffffff";
+  export let color = "#000000";
 
   export const NAME = "Facebook";
   export const TAGS = ["Social", "Brand", "Facebook"];

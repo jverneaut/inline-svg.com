@@ -2,7 +2,7 @@
   export let width = 10;
   export let height = 16;
   export let thickness = 2;
-  export let color = "#ffffff";
+  export let color = "#000000";
 
   export const NAME = "Chevron Right";
   export const TAGS = ["Chevron", "Arrow", "Right", "Direction"];

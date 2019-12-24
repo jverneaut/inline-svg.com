@@ -1,6 +1,6 @@
 <script>
   export let size = 12;
-  export let color = "#ffffff";
+  export let color = "#000000";
 
   export const NAME = "Circle";
   export const TAGS = ["Circle", "Shape"];

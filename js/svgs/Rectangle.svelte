@@ -1,7 +1,7 @@
 <script>
   export let width = 12;
   export let height = 8;
-  export let color = "#ffffff";
+  export let color = "#000000";
 
   export const NAME = "Rectangle";
   export const TAGS = ["Rectangle", "Rect", "Shape"];

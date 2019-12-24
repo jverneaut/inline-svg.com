@@ -2,7 +2,7 @@
   export let width = 24;
   export let height = 16;
   export let thickness = 2;
-  export let color = "#ffffff";
+  export let color = "#000000";
 
   export const NAME = "Menu";
   export const TAGS = ["Menu", "Hamburger"];

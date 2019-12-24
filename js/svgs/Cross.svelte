@@ -1,7 +1,7 @@
 <script>
   export let size = 16;
   export let thickness = 1;
-  export let color = "#ffffff";
+  export let color = "#000000";
 
   export const NAME = "Cross";
   export const TAGS = ["Cross", "Close"];

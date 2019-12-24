@@ -1,7 +1,7 @@
 <script>
   export let width = 16;
   export let thickness = 2;
-  export let color = "#ffffff";
+  export let color = "#000000";
 
   export const NAME = "Bar";
   export const TAGS = ["Bar", "Rect", "Line", "Shape"];
