@@ -12,7 +12,9 @@
         <ListItem
           component={svg}
           index={collection.baseIndex + svgIndex}
-          code={collectionIndex.toString() + (svgIndex + 1).toString()} />
+          code={collectionIndex.toString() + (svgIndex + 1)
+              .toString()
+              .padStart(2, '0')} />
       {/each}
     </div>
   {/each}
