@@ -17,7 +17,8 @@
     "js-beautify": "^1.10.2",
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-svelte": "^4.0.1",
-    "svelte": "^3.7.1"
+    "svelte": "^3.7.1",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "sass": "^1.22.9"

@@ -1,7 +1,7 @@
 <script>
-  import { svgs, collections } from "../store";
+  import { svgs, collections } from '../store';
 
-  import ListItem from "./ListItem.svelte";
+  import ListItem from './ListItem.svelte';
 </script>
 
 <div class="lists">
@@ -12,9 +12,7 @@
         <ListItem
           component={svg}
           index={collection.baseIndex + svgIndex}
-          code={collectionIndex.toString() + (svgIndex + 1)
-              .toString()
-              .padStart(2, '0')} />
+          code={collectionIndex.toString() + (svgIndex + 1).toString().padStart(2, '0')} />
       {/each}
     </div>
   {/each}

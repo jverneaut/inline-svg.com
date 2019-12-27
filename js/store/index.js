@@ -1,5 +1,7 @@
 import { writable, derived } from 'svelte/store';
 
+import uuid from 'uuid/v4';
+
 import Cross from '../svgs/Cross.svelte';
 import Menu from '../svgs/Menu.svelte';
 
@@ -22,25 +24,64 @@ export const collections = [
   { name: 'Brands', svgs: [Twitter, Facebook] },
 ].map((collection, index, arr) => ({
   ...collection,
-  baseIndex: arr.slice(0, index).reduce((acc, val) => acc.concat(val.svgs), []).length
+  baseIndex: arr.slice(0, index).reduce((acc, val) => acc.concat(val.svgs), []).length,
 }));
 
 const dummy = document.createElement('div');
 
-export const svgs = collections.map(collection => collection.svgs).reduce((acc, val) => {
-  const indexedComponents = val.map((component, index) => ({
-    keywords: new component({ target: dummy }).$$.ctx.TAGS,
-    name: new component({ target: dummy }).$$.ctx.NAME,
-    component,
-    index: acc.length + index
-  }));
-  return acc.concat(indexedComponents)
-}, []);
+export const svgs = collections
+  .map(collection => collection.svgs)
+  .reduce((acc, val) => {
+    const indexedComponents = val.map((component, index) => ({
+      keywords: new component({ target: dummy }).$$.ctx.TAGS,
+      name: new component({ target: dummy }).$$.ctx.NAME,
+      component,
+      index: acc.length + index,
+    }));
+    return acc.concat(indexedComponents);
+  }, []);
 
 export const selectedSvgIndex = writable(0);
-export const selectedSvg = derived(selectedSvgIndex, $selectedSvgIndex => svgs[$selectedSvgIndex]);
+export const selectedSvg = derived(
+  selectedSvgIndex,
+  $selectedSvgIndex => svgs[$selectedSvgIndex]
+);
 
 export const searchInput = writable('');
-export const searchResults = derived(searchInput, $searchInput => svgs.filter(svg => {
-  return svg.keywords.join(' ').toLowerCase().indexOf($searchInput.toLowerCase()) !== -1;
-}));
+export const searchResults = derived(searchInput, $searchInput =>
+  svgs.filter(svg => {
+    return (
+      svg.keywords
+        .join(' ')
+        .toLowerCase()
+        .indexOf($searchInput.toLowerCase()) !== -1
+    );
+  })
+);
+
+export const notifications = writable([]);
+
+export const notify = message => {
+  const id = uuid();
+  notifications.update(notifications => [
+    ...notifications,
+    {
+      message,
+      id,
+      show: true,
+    },
+  ]);
+
+  setTimeout(() => {
+    notifications.update(notifications =>
+      notifications.map(notification =>
+        notification.id === id
+          ? {
+              ...notification,
+              show: false,
+            }
+          : notification
+      )
+    );
+  }, 3000);
+};
