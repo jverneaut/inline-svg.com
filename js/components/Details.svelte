@@ -2,6 +2,7 @@
   import { selectedSvg, searchInput } from '../store';
   import { afterUpdate, onMount } from 'svelte';
   import beautify from 'js-beautify';
+  import content from '../content';
 
   let renderedComponent = null;
   let svgCode = null;
@@ -89,7 +90,7 @@
     <pre>{svgCode}</pre>
   </div>
   <a download={filename} href={file} class="detail__button" on:click={handleDownloadClick}>
-    Télécharger au format SVG
+    {content.download}
   </a>
 </div>
 
