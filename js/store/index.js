@@ -17,8 +17,10 @@ import Bar from '../svgs/Bar.svelte';
 import Rectangle from '../svgs/Rectangle.svelte';
 import Circle from '../svgs/Circle.svelte';
 
+import ArrowLeft from '../svgs/ArrowLeft.svelte';
+
 export const collections = [
-  { name: 'Navigation', svgs: [Menu, Cross] },
+  { name: 'Navigation', svgs: [Menu, Cross, ArrowLeft] },
   { name: 'Chevrons', svgs: [ChevronLeft, ChevronTop, ChevronRight, ChevronBottom] },
   { name: 'Shapes', svgs: [Bar, Rectangle, Circle] },
   { name: 'Brands', svgs: [Twitter, Facebook] },
