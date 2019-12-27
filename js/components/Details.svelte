@@ -1,7 +1,7 @@
 <script>
-  import { selectedSvg, searchInput } from "../store";
-  import { afterUpdate, onMount } from "svelte";
-  import beautify from "js-beautify";
+  import { selectedSvg, searchInput } from '../store';
+  import { afterUpdate, onMount } from 'svelte';
+  import beautify from 'js-beautify';
 
   let renderedComponent = null;
   let svgCode = null;
@@ -10,38 +10,39 @@
   $: filename = renderedComponent && renderedComponent.$$.ctx.FILENAME;
   $: tags = renderedComponent && renderedComponent.$$.ctx.TAGS;
   $: props =
-    renderedComponent &&
-    renderedComponent.$$.props.filter(prop => prop !== prop.toUpperCase());
+    renderedComponent && renderedComponent.$$.props.filter(prop => prop !== prop.toUpperCase());
 
   $: derivedProps =
     props &&
     props.map(prop => {
       const value = renderedComponent.$$.ctx[prop];
       const type = typeof value;
-      const inputType = type === "number" ? "number" : "text";
-      const unit = type === "number" ? "px" : "color";
+      const inputType = type === 'number' ? 'number' : 'text';
+      const unit = type === 'number' ? 'px' : 'color';
       const name = prop[0].toUpperCase() + prop.slice(1);
       return {
         value,
         inputType,
         name,
         unit,
-        prop
+        prop,
       };
     });
 
   let file;
 
   afterUpdate(async () => {
-    svgCode = beautify.html(
-      document.querySelector(".details__img").firstChild.outerHTML,
-      { indent_size: 2 }
-    );
-    file = "data:application/octet-stream;base64," + window.btoa(svgCode);
+    svgCode = beautify.html(document.querySelector('.details__img').firstChild.outerHTML, {
+      indent_size: 2,
+    });
+
+    const blob = new Blob([svgCode], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    file = url;
   });
 
   const changeProp = (prop, value, type) => {
-    if (type === "number") {
+    if (type === 'number') {
       renderedComponent[prop] = Number(value);
     } else {
       renderedComponent[prop] = value;
@@ -49,13 +50,13 @@
   };
 
   const copyCode = () => {
-    const temp = document.createElement("textarea");
+    const temp = document.createElement('textarea');
     document.body.appendChild(temp);
     temp.textContent = svgCode;
     temp.select();
-    document.execCommand("copy");
+    document.execCommand('copy');
     temp.remove();
-    alert("SVG copié avec succès");
+    alert('SVG copié avec succès');
     sendSvgCopy($selectedSvg.name);
   };
 
@@ -67,9 +68,7 @@
 <div class="details">
   <div class="details__title">{name}</div>
   <div class="details__img">
-    <svelte:component
-      this={$selectedSvg.component}
-      bind:this={renderedComponent} />
+    <svelte:component this={$selectedSvg.component} bind:this={renderedComponent} />
   </div>
   <div class="details__controls">
     {#if derivedProps}
@@ -89,6 +88,9 @@
   <div class="details__code">
     <pre>{svgCode}</pre>
   </div>
+  <a download={filename} href={file} class="detail__button" on:click={handleDownloadClick}>
+    Télécharger au format SVG
+  </a>
 </div>
 
 <!-- 
