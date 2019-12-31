@@ -2,11 +2,11 @@
   export let width = 10;
   export let height = 16;
   export let thickness = 2;
-  export let color = "#ffffff";
+  export let color = '#ffffff';
 
-  export const NAME = "Chevron Right";
-  export const TAGS = ["Chevron", "Arrow", "Right", "Direction"];
-  export const FILENAME = "chevron_right.svg";
+  export const NAME = 'Chevron Right';
+  export const TAGS = ['Chevron', 'Arrow', 'Right', 'Direction'];
+  export const FILENAME = 'chevron_right.svg';
 
   $: aire = (width * height) / 4;
   $: base = Math.sqrt((height / 2) * (height / 2) + width * width);
@@ -17,7 +17,7 @@
 </script>
 
 <svelte:options accessors={true} />
-<svg fill={color} {width} {height}>
+<svg fill={color} {width} {height} xmlns="http://www.w3.org/2000/svg">
   <path
     d={`M${0} ${yOffset} L${0} 0 L${width} ${height / 2} L${0} ${height} L${0} ${height - yOffset} L${width - xOffset} ${height / 2}`} />
 </svg>
