@@ -1,4 +1,6 @@
-/.cache
-/dist
-/node_modules
-ideas.txt
+.DS_Store
+/node_modules/
+/src/node_modules/@sapper/
+yarn-error.log
+/cypress/screenshots/
+/__sapper__/
